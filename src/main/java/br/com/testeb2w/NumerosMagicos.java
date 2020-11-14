@@ -2,6 +2,7 @@ package br.com.testeb2w;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class NumerosMagicos {
 
@@ -76,16 +77,26 @@ public class NumerosMagicos {
 
     public static void main(String[] a) {
         NumerosMagicos numerosMagicos = new NumerosMagicos();
-        List<IntervaloDeInteiros> listaDeIntervalos = new ArrayList<>();
-        listaDeIntervalos.add(new IntervaloDeInteiros(0, 1));
-        listaDeIntervalos.add(new IntervaloDeInteiros(0, 2));
-        listaDeIntervalos.add(new IntervaloDeInteiros(0, 3));
-        listaDeIntervalos.add(new IntervaloDeInteiros(0, 4));
-        listaDeIntervalos.add(new IntervaloDeInteiros(1, 1));
-        listaDeIntervalos.add(new IntervaloDeInteiros(2, 2));
-        listaDeIntervalos.add(new IntervaloDeInteiros(3, 3));
-        listaDeIntervalos.add(new IntervaloDeInteiros(4, 4));
 
-        System.out.println(numerosMagicos.contaNumerosMagicos(listaDeIntervalos));
+        List<IntervaloDeInteiros> listaDeIntervalos = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite dois números inteiros positivos separados por vírgula:");
+
+        String entrada = scanner.nextLine();
+        while (entrada.trim().length() > 0) {
+            listaDeIntervalos.add(
+                    new IntervaloDeInteiros(
+                            Integer.parseInt(entrada.split(",")[0].trim()),
+                            Integer.parseInt(entrada.split(",")[1].trim())));
+
+            System.out.println();
+            System.out.println("Informe o próximo intervalo ou pressione Enter para iniciar:");
+
+            entrada = scanner.nextLine();
+        }
+        System.out.println();
+        System.out.printf("%d números mágicos encontrados.", numerosMagicos.contaNumerosMagicos(listaDeIntervalos));
     }
 }
