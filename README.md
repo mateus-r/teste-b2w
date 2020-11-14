@@ -10,6 +10,12 @@ da quantidade de números mágicos encontrados em cada intervalo.
 
 *Um número X é dito “mágico” quando a raiz quadrada de X existe e é um número primo.*
 
+## Execução
+O programa pode ser iniciado pelo Maven para ser testado pelo terminal executando `mvn exec:java -Dexec.mainClass="br.com.testeb2w.NumerosMagicos"`.
+
+Os testes podem ser executados utilizando `mvn test`
+
+
 ## Considerações
 O teste segue a seguinte afirmação:  
 > É garantido que os números A e B serão inteiros positivos e que A será sempre menor ou igual que B  
